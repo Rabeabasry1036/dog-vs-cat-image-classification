@@ -160,3 +160,73 @@ Dense Layer
 Dropout
      ↓
 Sigmoid Output
+```
+## 5. ResNet50 Full Fine-Tuning
+
+ResNet50 pretrained on **ImageNet** is used for full fine-tuning.
+
+Unlike feature extraction, the entire ResNet50 backbone is unfrozen and trained together with the new classification head.
+
+### Structure
+
+```text
+Input Image
+     ↓
+Data Augmentation
+     ↓
+ResNet50 (ImageNet Pretrained)
+     ↓
+Global Average Pooling
+     ↓
+Dense Layer (128)
+     ↓
+Dropout (0.5)
+     ↓
+Sigmoid Output
+```
+
+---
+
+## 📊 Results & Model Comparison
+
+The three models were evaluated on the independent test dataset using accuracy, precision, recall, and F1-score.
+
+| Model | Total Parameters | Test Accuracy | Precision | Recall | F1-Score |
+|---|---:|---:|---:|---:|---:|
+| Custom CNN | 609,153 | 85.06% | 85.76% | 84.08% | 84.91% |
+| EfficientNetB0 Feature Extraction | 4,213,668 | **99.28%** | **99.40%** | **99.16%** | **99.28%** |
+| ResNet50 Full Fine-Tuning | 23,850,113 | 98.46% | 97.83% | 99.12% | 98.47% |
+
+### 🏆 Best Performing Model
+
+**EfficientNetB0 Feature Extraction** achieved the best overall performance:
+
+- Test Accuracy: **99.28%**
+- Precision: **99.40%**
+- Recall: **99.16%**
+- F1-Score: **99.28%**
+
+### ⚡ Most Parameter-Efficient Model
+
+The **Custom CNN** has the lowest number of parameters with **609,153**, making it the most parameter-efficient model.
+
+Overall, **EfficientNetB0 Feature Extraction** provides the best balance between classification performance and computational cost among the three models.
+
+## 🔎 Error Analysis
+
+Error analysis was performed on the ResNet50 Fine-Tuned model.
+
+The classification report achieved:
+
+- Accuracy: 98.46%
+- Incorrect predictions: 77 out of 5,000 test images
+
+### Confusion Matrix
+
+| Actual / Predicted | Cats | Dogs |
+|---|---:|---:|
+| Cats | 2445 | 55 |
+| Dogs | 22 | 2478 |
+
+The model correctly classified most cats and dogs, with relatively few
+misclassifications.
