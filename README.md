@@ -210,7 +210,7 @@ The three models were evaluated on the independent test dataset using accuracy, 
 
 The **Custom CNN** has the lowest number of parameters with **609,153**, making it the most parameter-efficient model.
 
-Overall, **EfficientNetB0 Feature Extraction** provides the best balance between classification performance and computational cost among the three models.
+Overall, **EfficientNetB0 Feature Extraction** achieved the best overall classification performance among the three models.
 
 ## 🔎 Error Analysis
 
