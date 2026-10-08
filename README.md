@@ -1,4 +1,4 @@
-# 🐶🐱 Dog vs Cat Image Classification
+# Dog vs Cat Image Classification
 
 A deep learning project for binary image classification of **cats and dogs** using **TensorFlow and Keras**.
 
@@ -16,8 +16,8 @@ The models are evaluated using accuracy, precision, recall, and F1-score.
 
 The objective of this project is to build and compare different deep learning models for classifying images into two categories:
 
-- 🐱 Cats
-- 🐶 Dogs
+-  Cats
+-  Dogs
 
 The project covers the complete image classification workflow, including:
 
